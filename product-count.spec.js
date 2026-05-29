@@ -15,12 +15,15 @@ test.describe('Collection product count checks', () => {
 
     const products = page.locator('#collection-products .product');
 
-      const count = await products.count();
-
+      const count = await products.count();  
+      
+      console.log(`Found ${count} products for ${check.name}`);
+      
       expect(
         count,
-        `${check.name} only has ${count} products`
+        `${check.name} has only ${count} products. URL: ${check.url}`
       ).toBeGreaterThanOrEqual(check.minimumProducts);
+    
     });
   }
 });
