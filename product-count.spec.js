@@ -4,7 +4,7 @@ const checks = [
   {
     name: 'Wedding gifts under £50',
     url: 'https://www.crystals-online.co.uk/collections/wedding-gifts?filter.v.price.gte=0&filter.v.price.lte=50',
-    minimumProducts: 10
+    minimumProducts: 10000
   }
 ];
 
