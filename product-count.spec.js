@@ -13,9 +13,7 @@ test.describe('Collection product count checks', () => {
     test(`${check.name} has at least ${check.minimumProducts} products`, async ({ page }) => {
       await page.goto(check.url, { waitUntil: 'networkidle' });
 
-      const products = page.locator('a[href*="/products/"]').filter({
-  has: page.locator('img')
-});
+    const products = page.locator('#collection-products .product');
 
       const count = await products.count();
 
