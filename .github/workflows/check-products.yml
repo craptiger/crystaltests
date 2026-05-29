@@ -26,3 +26,22 @@ jobs:
 
       - name: Run product count checks
         run: npm test
+
+
+      - name: Send email if product checks fail
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Crystals Online product count check failed
+          to: craptiger@hotmail.com
+          from: Crystals Online Monitor <${{ secrets.EMAIL_USERNAME }}>
+          body: |
+            One or more Crystals Online product count checks failed.
+
+            View the failed run here:
+            https://github.com/craptiger/crystaltests/actions
